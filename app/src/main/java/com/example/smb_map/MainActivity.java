@@ -24,8 +24,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void testIt(View view) {
-        Intent intent = new Intent(this, TestActivity.class);
-        startActivity(intent);
-    }
 }
