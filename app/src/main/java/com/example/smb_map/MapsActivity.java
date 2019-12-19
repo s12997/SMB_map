@@ -85,8 +85,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for(Shop shop: shops){
             LatLng pos = new LatLng(shop.getLatitude(), shop.getLongitude());
-            googleMap.addMarker(new MarkerOptions().position(pos).title(shop.getName()));
-            googleMap.addCircle(new CircleOptions().center(pos).radius(1).fillColor(Color.BLUE));
+            googleMap.addMarker(new MarkerOptions().position(pos).title(shop.getName().toString()));
+            googleMap.addCircle(new CircleOptions().center(pos).radius(100).fillColor(Color.BLUE));
         }
     }
 

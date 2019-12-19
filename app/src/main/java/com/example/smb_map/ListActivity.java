@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import com.google.android.gms.location.GeofencingClient;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -29,7 +30,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smb_map.Adapter.MyAdapter;
 import com.example.smb_map.DB.ShopDB;
 import com.example.smb_map.Model.Shop;
-import com.example.smb_map.ProxyAlert.MyAlert;
 
 import java.util.List;
 
@@ -123,7 +123,7 @@ public class ListActivity extends AppCompatActivity{
                             sDB.addShop(new Shop(name.getText().toString(),la, lo));
                             fill();
 
-                            addProximityAlert(la, lo, 2.0f);
+                            addProximityAlert(la, lo, 100.0f);
                         }
                     }
                 });
@@ -178,7 +178,7 @@ public class ListActivity extends AppCompatActivity{
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, minCzas, minDystans, ll);
     }
 
-    private void addProximityAlert(double latitude, double longitude, float radius){
+    private void addProximityAlert(double latitude, double longitude, double radius){
         Intent i = new Intent(PROX_ALERT_INTENT);
         PendingIntent proximityIntent = PendingIntent.getBroadcast(this, 0, i, 0);
 

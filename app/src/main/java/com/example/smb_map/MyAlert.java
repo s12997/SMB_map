@@ -1,4 +1,4 @@
-package com.example.smb_map.ProxyAlert;
+package com.example.smb_map;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,8 +12,6 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.smb_map.R;
-
 public class MyAlert extends BroadcastReceiver {
 
     private int id = 0;
@@ -26,7 +24,7 @@ public class MyAlert extends BroadcastReceiver {
 
         Boolean entering = intent.getBooleanExtra(key, false);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, null, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         NotificationCompat.Builder notif = new NotificationCompat.Builder(context, channe1Id)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
